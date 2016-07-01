@@ -6,6 +6,7 @@ haha-hbase-thrift2
         pip install thrift
         
    usage:
+   
         import haha
         ha = haha.Hbase2Client(host, port, timeout) # timeout is ms
         ha.put('[namespace:]tablename', 'row_key', 'field', 'value')
