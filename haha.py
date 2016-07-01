@@ -4,22 +4,16 @@
 Author: senchen2013
 Email: senchen2013@163.com
 ''' 
-import sys
-reload(sys)
-sys.setdefaultencoding("utf-8")
-
-import os.path
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "lib"))
-
-from collections import defaultdict
 
 from thrift.transport import TTransport
 from thrift.transport import TSocket
 from thrift.transport import THttpClient
 from thrift.protocol import TBinaryProtocol
 
-from hbase import THBaseService
-from hbase.ttypes import *
+from collections import defaultdict
+
+import THBaseService
+from ttypes import *
 
 PUT_BUFFER_SIZE = 10
 
