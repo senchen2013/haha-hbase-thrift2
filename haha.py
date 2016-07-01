@@ -66,7 +66,7 @@ class Hbase2Client(object):
         else:
             if tputBuffers:
                 self.client.putMultiple(table, tputBuffers)
-    
+
     def put(self, table, row, column, value, family = 'fa'):
         self.put_rows(table, {row:{column:value}}, family) 
 
@@ -102,3 +102,14 @@ class Hbase2Client(object):
         if res:
             return res.values()[0] # 删除row 
         return res
+
+    def delete_rows(self, table, row_columns = {}, family = 'fa'):
+        tdeletes = [TDelete(row, self.__getTColumns(columns, family)) for row, columns in row_columns.items()]    
+        self.client.deleteMultiple(table, tdeletes) 
+    
+    def delete(self, table, row, columns = [], family = 'fa'):
+        self.delete_rows(table, {row: columns}, family)
+
+    def exists(self, table, row, columns = [], family = 'fa'):
+        tget = TGet(row, self.__getTColumns(columns, family))
+        return self.client.exists(table, tget)
