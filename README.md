@@ -11,4 +11,4 @@ haha-hbase-thrift2
         ha = haha.Hbase2Client(host, port, timeout) # timeout is ms
         ha.put('[namespace:]tablename', 'row_key', 'field', 'value')
         
-        for more, in the haha_test.py
+    for more, in the haha_test.py
