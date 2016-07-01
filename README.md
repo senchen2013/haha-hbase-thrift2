@@ -15,3 +15,7 @@ usage:
         ha.put('[namespace:]tablename', 'row_key', 'field', 'value')
         
 for more, see haha_test.py
+    
+    nosetest haha_test.py
+    
+    
