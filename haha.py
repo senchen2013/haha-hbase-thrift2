@@ -84,7 +84,6 @@ class Hbase2Client(object):
         if tmp_results:
             result = defaultdict(dict)
             for tmp_result in tmp_results:
-                row = tmp_result.row
                 for tr in tmp_result.columnValues:
                     result[tmp_result.row][tr.qualifier] = tr.value
             
